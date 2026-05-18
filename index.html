@@ -1,202 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Leticia Claro Oliveira</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.7.2/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Leticia Claro Oliveira</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.png" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#research">Research</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#cv">CV</a></li>
-                    <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>-->
-                </ul>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Leticia Claro Oliveira — PhD Candidate in Political Science at Washington University in St. Louis" />
+    <title>Leticia Claro Oliveira</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.7.2/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:        #fafafa;
+            --bg-rule:   #e8e8e8;
+            --ink:       #1a1a1a;
+            --ink-mid:   #4a4a4a;
+            --ink-soft:  #7a7a7a;
+            --green:     #4a5c3f;
+            --green-mid: #6b7d60;
+            --green-dim: #c8d4c3;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans:  'Jost', system-ui, sans-serif;
+            --nav-h: 60px;
+            --gutter: clamp(1.5rem, 6vw, 5rem);
+            --col: 680px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--sans);
+            font-size: 15px;
+            line-height: 1.75;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            height: var(--nav-h);
+            background: var(--bg);
+            border-bottom: 1px solid var(--bg-rule);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--gutter);
+        }
+
+        .nav-name {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .nav-name:hover { color: var(--green); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links a.active { color: var(--green); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span { display: block; width: 20px; height: 1px; background: var(--ink); }
+
+        /* ── PAGE CONTAINER ── */
+        .pages {
+            position: fixed;
+            inset: var(--nav-h) 0 0 0;
+            overflow: hidden;
+        }
+
+        /* Each section is a full-height page */
+        .page {
+            position: absolute;
+            inset: 0;
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(12px);
+            padding: 4rem var(--gutter) 4rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .page.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .page-inner {
+            width: 100%;
+            max-width: var(--col);
+            padding-top: 1.5rem;
+        }
+
+        /* ── SECTION LABEL ── */
+        .label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 2.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--bg-rule);
+        }
+
+        /* ── ABOUT ── */
+        .about-hero {
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .about-photo {
+            flex-shrink: 0;
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid var(--bg-rule);
+            background: var(--green-dim);
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+        }
+        h1 em { font-style: italic; color: var(--green); }
+
+        .about-meta {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+        .about-meta a {
+            color: var(--ink-soft);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--bg-rule);
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+        .about-meta a:hover { color: var(--green); text-decoration-color: var(--green); }
+
+        .about-body p {
+            font-size: 0.97rem;
+            color: var(--ink-mid);
+            line-height: 1.85;
+            margin-bottom: 1.25rem;
+        }
+        .about-body p strong { color: var(--ink); font-weight: 500; }
+
+        .interests {
+            margin-top: 1.75rem;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+        .interests .dot { color: var(--green-dim); margin: 0 0.6rem; }
+
+        .social-row { display: flex; gap: 0.75rem; margin-top: 2rem; }
+        .social-row a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.1rem;
+            height: 2.1rem;
+            border: 1px solid var(--bg-rule);
+            border-radius: 50%;
+            color: var(--ink-soft);
+            font-size: 0.78rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .social-row a:hover { border-color: var(--green); color: var(--green); }
+
+        /* ── RESEARCH ── */
+        .group { margin-bottom: 3rem; }
+        .group:last-child { margin-bottom: 0; }
+
+        .group-title {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+
+        .paper {
+            padding-bottom: 1.75rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid var(--bg-rule);
+        }
+        .paper:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+        .paper-type {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            margin-bottom: 0.4rem;
+        }
+
+        .paper-title {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.4;
+            margin-bottom: 0.7rem;
+        }
+
+        .abstract-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+        .abstract-toggle:hover { color: var(--green); }
+        .abstract-toggle .toggle-icon {
+            font-size: 0.55rem;
+            transition: transform 0.25s ease;
+            display: inline-block;
+        }
+        .abstract-toggle.open .toggle-icon { transform: rotate(90deg); }
+
+        .abstract-body {
+            display: none;
+            font-size: 0.88rem;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            margin-bottom: 0.6rem;
+        }
+        .abstract-body.open { display: block; }
+        .abstract-body em { font-style: italic; }
+        .abstract-body strong { color: var(--ink); font-weight: 500; }
+
+        .paper-coauthors { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.35rem; }
+
+        .paper-venue a {
+            font-size: 0.78rem;
+            color: var(--green-mid);
+            text-decoration: none;
+            font-style: italic;
+            border-bottom: 1px solid var(--green-dim);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .paper-venue a:hover { color: var(--green); border-color: var(--green); }
+
+        .diss-note {
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            font-style: italic;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid var(--bg-rule);
+            line-height: 1.7;
+        }
+
+        /* ── TEACHING ── */
+        .teaching-table { width: 100%; border-collapse: collapse; }
+        .teaching-table tr { border-bottom: 1px solid var(--bg-rule); }
+        .teaching-table tr:last-child { border-bottom: none; }
+        .teaching-table td { padding: 0.85rem 0; vertical-align: top; }
+        .teaching-table td:first-child {
+            color: var(--ink-soft);
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            padding-right: 2rem;
+            padding-top: 0.95rem;
+            min-width: 7rem;
+        }
+        .t-course {
+            font-family: var(--serif);
+            font-size: 0.98rem;
+            font-weight: 500;
+            color: var(--ink);
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+        .t-detail { font-size: 0.75rem; color: var(--ink-soft); display: block; }
+        .t-level {
+            display: inline-block;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green-mid);
+            border: 1px solid var(--green-dim);
+            border-radius: 2px;
+            padding: 0.1rem 0.35rem;
+            margin-left: 0.45rem;
+            vertical-align: middle;
+            font-family: var(--sans);
+        }
+
+        /* ── CV ── */
+        .cv-frame {
+            width: 100%;
+            height: calc(100vh - var(--nav-h) - 10rem);
+            min-height: 400px;
+            border: 1px solid var(--bg-rule);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .cv-frame embed { width: 100%; height: 100%; display: block; }
+        .cv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--green);
+            text-decoration: none;
+            border-bottom: 1px solid var(--green-dim);
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+        .cv-link:hover { border-color: var(--green); }
+
+        /* ── PAGE INDICATOR DOTS ── */
+        .page-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            z-index: 100;
+        }
+        .page-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--bg-rule);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .page-dot.active {
+            background: var(--green);
+            transform: scale(1.4);
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 620px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: var(--nav-h); left: 0; right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--bg-rule);
+                flex-direction: column;
+                padding: 1rem var(--gutter) 1.5rem;
+                gap: 1rem;
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: flex; }
+            .about-hero { flex-direction: column; gap: 1.5rem; }
+            .about-photo { width: 84px; height: 84px; }
+            .teaching-table td:first-child { display: none; }
+            .page-dots { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+    <span class="nav-name" data-page="about">Leticia Claro Oliveira</span>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a data-page="about">About</a></li>
+        <li><a data-page="research">Research</a></li>
+        <li><a data-page="teaching">Teaching</a></li>
+        <li><a data-page="cv">CV</a></li>
+    </ul>
+</nav>
+
+<!-- PAGES -->
+<div class="pages" id="pages">
+
+    <!-- ABOUT -->
+    <div class="page active" id="page-about">
+        <div class="page-inner">
+            <div class="about-hero">
+                <div class="about-photo">
+                    <img src="assets/img/profile.png" alt="Leticia Claro Oliveira" />
+                </div>
+                <div>
+                    <h1>Leticia<br><em>Claro Oliveira</em></h1>
+                    <p class="about-meta">
+                        PhD Candidate - Political Science<br>
+                        Washington University in St. Louis<br>
+                        <a href="mailto:m.l.oliveira@wustl.edu">m.l.oliveira@wustl.edu</a>
+                    </p>
+                </div>
             </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Leticia
-                        <span class="text-primary">Claro Oliveira</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        PhD Student (Degree Expected May 2028) · Washington University in St. Louis ·
-                        <a href="mailto:m.l.oliveira@wustl.edu" target="_blank" rel="noopener noreferrer">m.l.oliveira@wustl.edu</a>
-                    </div>
-                    <p class="lead mb-5">Welcome! I am a Ph.D. student in Political Science at Washington University in St. Louis and a Dean’s Distinguished Graduate Fellow. 
-                        I study comparative politics, with a regional focus on Latin America. 
-                        My research investigates the relationship between crime and politics, exploring how organized crime, gun violence, and criminal governance shape political representation and institutions. <br/><br/>
-                        Before joining WashU, I earned a B.A. in Social Sciences and an M.A. in Political Science from the University of São Paulo in Brazil. <br/><br/>
-                        My previous work may be cited under my full name, <strong>Maria Leticia Claro de Faria Oliveira</strong>, or some variations. 
-                        While I proudly carry all my family names, my recent academic publications appear under the shortened version, <strong>Leticia Claro Oliveira</strong>.</p>
-                    <p class="lead mb-5"><strong>Interests:</strong> Organized Crime · Gun Violence · Public Policy · Political Representation </p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/marialeticiaclaro/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/claroleticia" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                      <!--   <a class="social-icon" href="https://x.com/amarialeticia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>-->
-                       <!--  <a class="social-icon" href="https://bsky.app/profile/amarialeticia.bsky.social" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-bluesky"></i></a>-->
-                        <a class="social-icon" href="https://orcid.org/0000-0003-1305-3278" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid"></i></a>
-                        
-                    </div>
+            <div class="about-body">
+                <p>Welcome! I am a Ph.D. Candidate in Political Science at Washington University in St. Louis, and a Dean's Distinguished Graduate Fellow. I study comparative politics, with a regional focus on Latin America. My research investigates how political institutions shape access to power — and how contextual conditions, especially criminal violence, limit what formal rules and public policy can achieve.</p>
+                <p>Before joining WashU, I earned a B.A. in Social Sciences and an M.A. in Political Science from the University of São Paulo in Brazil.</p>
+                <p>My previous work may be cited under my full name, <strong>Maria Leticia Claro de Faria Oliveira</strong>, or some variations. While I proudly carry all my family names, my recent academic publications appear under the shortened version, <strong>Leticia Claro Oliveira</strong>.</p>
+                <p class="interests">
+                    Organized Crime <span class="dot">·</span> Gun Violence <span class="dot">·</span> Political Representation <span class="dot">·</span> Electoral Institutions
+                </p>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/marialeticiaclaro/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/claroleticia" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://orcid.org/0000-0003-1305-3278" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
                 </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Experience-->
-            <section class="resume-section" id="research">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Work in Progress</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Criminal Violence and Politics</h3>
-                            <div class="subheading mb-3">Criminal Violence and Political Representation</div>
-                            <div class="subheading mb-3">Working Paper</div>
-                            <p>
-                                <strong>Abstract:</strong> Does criminal violence shape who runs for office and who gets elected? While much of the existing research has focused on 
-                                large-scale conflicts, the effects of persistent, everyday violence on political representation remain understudied. I examine how criminal violence influences 
-                                the characteristics associated with political leadership and what this means for electoral competition. Using evidence from Brazil, 
-                                I test whether violence affects who enters the political arena and voters’ preferences at the ballot box.
- 
-                            </p>
-                        </div>
-                  <!--      <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>-->
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Gun Violence</h3>
-                             <div class="subheading mb-3">Global Armed Violence and Health </div>
-                             <div class="subheading mb-3">Research Project</div>
-                            <p><strong>Abstract:</strong> This research project investigates the relationships between firearm violence, national and global health within the scope of the <strong> Commission on Global Armed Violence and Health</strong>. 
-                                In Brazil, the study analyzes the evolution of firearm registration and the profile of registrants, morbidity and mortality indicators directly or 
-                                indirectly related to firearm ownership and use, the legal and regulatory framework, and the legal and illegal markets for firearm production and trade. 
-                                The research is multidisciplinary, incorporating perspectives from political science, law, sociology, and public health.</p>
-                                <p> with Lorena Barberia (USP) · Natalia Pires de Vasconcelos (UGA) · Luiz Roth Cantarelli (USP) · Mateus Tobias Vieira (UNESP) · Bruno Langeani (Instituto Sou da Paz)</p>
-                        </div>
-                       
-                       <!--  <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div> -->
-                    </div> 
-                    <h2 class="mb-5">Publications</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Latin American Politics</h3>
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                                <div class="flex-grow-1">
-                                    <div class="subheading mb-3">The Relationship between Ideology and COVID-19 Deaths: What We Know and What We Still Need to Know</div>
-                                    <p><strong>Abstract: </strong>Several recent studies have investigated if support for Jair Bolsonaro in the 
-                                        presidential election of 2018 is positively associated with COVID-19 infections and deaths in Brazil. 
-                                        In these studies, COVID-19 outcomes in 2020 and 2021 are the dependent variables, and votes for Jair Bolsonaro in the 2018 
-                                        presidential election (as a proxy for ideology) are the key explanatory variable. 
-                                        This article discusses why ecological research designs are difficult to test empirically. 
-                                        We discuss why correlations between vote shares and COVID-19 outcomes using aggregate data can produce biased inferences, 
-                                        and we specifically focus on measurement error, aggregation bias, and spatial and temporal dynamics.</p>
-                                    <p>with Lorena Barberia (USP) · Natália de Paula Moreira (USP) · Rebeca de Jesus Carvalho (USP) · Isabel Seelaender Costa Rosa (USP) · Marcela Zamudio (USP)
-                                    </p>
-                                    <div class="flex-shrink-0"><a href="https://www.scielo.br/j/bpsr/a/LZrBWxfkNRFYDGBhD8Mxp3C/" class="text-primary" target="_blank" rel="noopener noreferrer">Brazilian Political Science Review (2022)</a></div>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                                <div class="flex-grow-1">
-                                    <div class="subheading mb-3">The Effect of State-Level Social Distancing Policy Stringency on Mobility in the States of Brazil</div>
-                                    <p><strong>Abstract:</strong> In Brazil, sub-national governments have played a particularly important role as the key actors implementing non-pharmaceutical 
-                                        interventions to halt the spread of COVID-19. Building on the methodology proposed by the Oxford COVID-19 Government Response Tracker (OxCGRT), 
-                                        we coded the stringency levels of state-level school, commerce, services, industry, public gathering, and private event closure policies and describe these actions’ duration 
-                                        at the state-level in Brazil from early February to mid-May 2020. Our results suggest significant heterogeneity across 
-                                        Brazil and across weeks in social distancing policy stringency during this period. We then apply dynamic time-series cross-sectional 
-                                        methods to evaluate the effect of anti-contagion policies on the population’s mobility using cell phone location data.
-                                         We find that anti-contagion policies had a significant effect on producing higher adherence to remaining at home even though social 
-                                         distancing policies were relatively moderate as compared to other countries. 
-                                        Our results also suggest that social distancing policies have a greater impact when a more complete and coherent set of policies were introduced and sustained by state governments.</p>
-                                    <p>with Lorena G. Barberia (USP) · Luiz G. R. Cantarelli (USP) · Natália de Paula Moreira (USP) · Isabel Seelaender Costa Rosa (USP)</p>
-                                    <div class="flex-shrink-0"><a href="https://doi.org/10.1590/0034-761220200549" class="text-primary" target="_blank" rel="noopener noreferrer">Revista de Administração Pública (2021)</a></div>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                                <div class="flex-grow-1">
-                                    <div class="subheading mb-3">Should I Stay or Should I Go? Embracing Causal Heterogeneity in the Study of Pandemic Policy and Citizen Behavior</div>
-                                    <p><strong>Objective:</strong> To test for multicausality between government policy, health outcomes, economic performance, and citizen behavior during the COVID-19 global pandemic.
-                                        <strong> Methods:</strong> We perform Granger-causality tests to explore the interrelationship between four endogenous variables, social distancing policy, home isolation, balance rate, and average weekly COVID-19 deaths, in the 26 states of Brazil. As exogenous variables, we included a linear time trend and a dummy for the week in which the World Health Organization (WHO) declared COVID-19 a global pandemic.
-                                        <strong> Results:</strong> Our analysis of Granger causal ordering between the four variables demonstrates that there is significant heterogeneity across the Brazilian federation. These findings can be interpreted as underscoring that there is no common model applicable to all states, and that the dynamics are context-dependent.
-                                        <strong> Conclusion:</strong> Our suggested approach allows researchers to account for the complex interrelationship between government policy, citizen behavior, the economy, and COVID-related health outcomes.</p>
-                                    <p>with Lorena G. Barberia (USP) · Andrea Junqueira (TAMU) · Natália de Paula Moreira (USP) · Guy D. Whitten (TAMU)</p>
-                                    <div class="flex-shrink-0"><a href="https://doi.org/10.1111/ssqu.13037" class="text-primary" target="_blank" rel="noopener noreferrer">Social Science Quarterly (2021)</a></div>
+            </div>
+        </div>
+    </div>
 
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                                <div class="flex-grow-1">
-                                    <div class="subheading mb-3">Foreign Policy and the Legislature in President Lugo's Paraguay </div>
-                                    <p>(Política Externa e Legislativo no Paraguai do Presidente Lugo)</p>
-                                    <p><strong>Introduction:</strong>  The article assesses the association between political and institutional factors and the capacity of President Lugo to approve his legislative initiatives, disaggregating the analysis by themes of domestic politics and foreign policy. The objective is to investigate, within the framework of a multiparty presidentialism, the hypothesis of the higher likelihood of the National Congress to approve presidential initiatives in foreign policy when compared to those of domestic politics.
-                                     <strong> Material and Methods:</strong>  The empirical analysis covers all the 839 presidential initiatives carried out between 2008 and 2012. We analyse the approval or rejection of each bill.
-                                     <strong> Results:</strong>  Through a logistic model, we found a president who is strongly constrained by the Legislative in domestic affairs and another with sufficient conditions to approve the foreign policy agenda. Besides, we find that political and economic factors such as popular approval of the president, unemployment and inflation alter the propensity of the legislative initiative of the president to be approved in the Legislative.
-                                     <strong> Discussion:</strong>  The proof of the thesis of the two presidents in a multiparty presidentialism with a low institutional propensity to the predomination of the president in the legislative process demonstrates the specificity of foreign policy when compared to domestic politics.</p>
-                                    <p>with Pedro Feliu Ribeiro</p>
-                                    <div class="flex-shrink-0"><a href="https://doi.org/10.1590/1678987318266805" class="text-primary" target="_blank" rel="noopener noreferrer">Revista de Sociologia e Política (2018)</a></div>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                                <div class="flex-grow-1">
-                                    <div class="subheading mb-3"> The Executive and Legislative Relations in Paraguay under Fernando Lugo (2008-2012)</div>
-                                    <p> (As Relações Executivo e Legislativo no Paraguai de Fernando Lugo (2008-2012))</p>
-                                    <p><strong>Abstract:</strong> This paper analyzes legislative process in The National Congress of Paraguay during Lugo’s
-                                        administration. The main objective here is to understand the ability of a president to approve
-                                        an agenda of land reform and social policies facing a majority opposition in parliament.
-                                        Results indicate two directions. First, strategical state areas such as foreign policy, finances
-                                        and administration have received a massive support from members of Congress. Second, the
-                                        president inability to legislate in sensitive electoral themes such as social policy and land
-                                        reform stresses the troubled relationship between president and congress. The high
-                                        presidential legislative success did not avoid that the relationship problems with the PLRA,
-                                        the majority opposition of ANR, UNACE and PPQ, and the lower rate of the presidential
-                                        approval resulted in a failure of the Lugo’s electoral promises.</p>
-                                    <p>with Pedro Feliu Ribeiro (USP)</p>
-                                    <div class="flex-shrink-0"><a href="https://publicaciones.sociales.uba.ar/index.php/revistaparaguay/article/download/1906/2065" 
-                                        class="text-primary" target="_blank" rel="noopener noreferrer">Revista Paraguay desde las Ciencias Sociales (2017)</a></div>
+    <!-- RESEARCH -->
+    <div class="page" id="page-research">
+        <div class="page-inner">
+            <p class="label">Research</p>
 
-                                </div>
-                            </div>
-                            
-            </section>
-            <hr class="m-0" />
-            <!-- Education-->
-            <section class="resume-section" id="cv">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Curriculum Vitae</h2>
-                    <div style="overflow: auto; height: 600px;">
-                        <embed src="assets/cv_file.pdf" type="application/pdf" width="100%" height="100%" />
-                    </div>
+            <div class="group">
+                <p class="group-title">Dissertation</p>
+                <p class="diss-note"><em>Who Governs? Institutions, Parties, and Access to Power</em> — My dissertation develops three connected arguments about when electoral institutions translate into meaningful changes in access to power.</p>
+
+                <div class="paper">
+                    <p class="paper-type">Working Paper</p>
+                    <p class="paper-title">Winning to Lose: How Electoral Rules Shape Cabinet Appointments and Public Service Delivery in Presidential Systems</p>
+                <!--      <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">What determines how much discretion an executive retains over cabinet appointments? I argue that electoral rules shape executive discretion by determining whether coalition contributions are attributable. Majority runoff systems allow parties to compete independently in the first round, postponing coalition bargaining until electoral weight is revealed. Inter-round endorsements then make contributions visible and create enforceable claims. First-past-the-post systems push coordination earlier, diffusing contributions and weakening individual claims. I test this argument using a regression discontinuity design around Brazil's 200,000-voter population threshold. Executives elected under runoff rules form narrower first-round coalitions and rely more heavily on partisan secretariat appointments.</div>
+                -->
                 </div>
-            </section> 
-            <hr class="m-0" />
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+                <div class="paper">
+                    <p class="paper-type">Working Paper</p>
+                    <p class="paper-title">Keeping It in the Family: Kinship Networks as a Quota Compliance Strategy in Brazil</p>
+                <!--      <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">Gender quota laws offer a direct test of whether institutional change can alter the distribution of power. I argue that kinship recruitment becomes the dominant compliance strategy where candidate selection is informal and elite-controlled. When parties face binding nomination requirements, they satisfy the formal threshold at low cost by recruiting women already connected to male politicians through family ties. These women are embedded in local machines and unlikely to disturb internal power arrangements. Quotas expand ballot access without disturbing the structures that control it. I evaluate this mechanism using Brazilian legislative candidate data, leveraging the introduction of quotas in 1997 and their tightening in 2009.</div>
+              -->
+                </div>
+
+                <div class="paper">
+                    <p class="paper-type">Working Paper</p>
+                    <p class="paper-title">Criminal Violence and the Representation of Women in Politics</p>
+                 <!--     <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">Does criminal violence affect the number of women entering politics and their electoral success? I argue that high levels of criminal violence heighten the association of leadership with agentic traits, thereby decreasing the presence of women in electoral races and voters' support for them. I test this argument with Brazilian municipal elections (2004–2020) and survey data from the Latin American Public Opinion Project. The findings reveal that homicides not only influence the proportion of women running for local offices but also lower the proportion of elected women. Moreover, citizens who feel less secure in their neighborhoods are more likely to perceive women as less competent in addressing crime.</div>
+               -->
+                </div>
+            </div>
+
+            <div class="group">
+                <p class="group-title">Other Projects</p>
+
+                <div class="paper">
+                    <p class="paper-type">Book Project</p>
+                    <p class="paper-title">When Mobility Becomes Security: Criminal Governance and Civilian Migration in Rio de Janeiro </p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> About this project</button>
+                    <div class="abstract-body">  Organized criminal groups have become enduring political, economic, and social actors, 
+                        shaping civilians' everyday lives through coercion, extraction, and rule enforcement. 
+                        Yet questions such as when and why civilians leave these territories or whether non-coercive state interventions can weaken criminal governance remain largely unanswered. This project develops a theory of civilian exit under criminal rule.</div>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-type">Research Project</p>
+                    <p class="paper-title">Global Armed Violence and Health</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">This research project investigates the relationships between firearm violence, national and global health within the scope of the <strong>Commission on Global Armed Violence and Health</strong>. In Brazil, the study analyzes the evolution of firearm registration and the profile of registrants, morbidity and mortality indicators directly or indirectly related to firearm ownership and use, the legal and regulatory framework, and the legal and illegal markets for firearm production and trade. The research is multidisciplinary, incorporating perspectives from political science, law, sociology, and public health.</div>
+                    <p class="paper-coauthors">with Lorena Barberia (USP) · Natalia Pires de Vasconcelos (UGA) · Luiz Roth Cantarelli (USP) · Mateus Tobias Vieira (UNESP) · Bruno Langeani (Instituto Sou da Paz)</p>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-type">Working Paper · Awarded ASU - BRIDGS Emergent Scholar Fellow (Spring 2026)</p>
+                    <p class="paper-title">The Politics of Missing Data: How Democratization Transitions Explain Gun Data Transparency in Latin America</p>
+                    <p class="paper-coauthors">with Lorena Barberia (USP) · Natalia Pires de Vasconcelos (UGA) · Luiz Roth Cantarelli (USP) · Mateus Tobias Vieira (UNESP) · Bruno Langeani (Instituto Sou da Paz)</p>
+                </div>
+            </div>
+
+
+            <div class="group">
+                <p class="group-title">Publications</p>
+
+                <div class="paper">
+                    <p class="paper-title">The Relationship between Ideology and COVID-19 Deaths: What We Know and What We Still Need to Know</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">Several recent studies have investigated if support for Jair Bolsonaro in the presidential election of 2018 is positively associated with COVID-19 infections and deaths in Brazil. This article discusses why ecological research designs are difficult to test empirically, focusing on measurement error, aggregation bias, and spatial and temporal dynamics.</div>
+                    <p class="paper-coauthors">with Lorena Barberia (USP) · Natália de Paula Moreira (USP) · Rebeca de Jesus Carvalho (USP) · Isabel Seelaender Costa Rosa (USP) · Marcela Zamudio (USP)</p>
+                    <p class="paper-venue"><a href="https://www.scielo.br/j/bpsr/a/LZrBWxfkNRFYDGBhD8Mxp3C/" target="_blank" rel="noopener noreferrer">Brazilian Political Science Review (2022)</a></p>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-title">The Effect of State-Level Social Distancing Policy Stringency on Mobility in the States of Brazil</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">In Brazil, sub-national governments played a key role implementing non-pharmaceutical interventions to halt the spread of COVID-19. Building on the Oxford COVID-19 Government Response Tracker methodology, we coded stringency levels of state-level policies from early February to mid-May 2020. We find that anti-contagion policies had a significant effect on adherence to remaining at home, and that social distancing policies had greater impact when a more complete and coherent set of policies were introduced and sustained by state governments.</div>
+                    <p class="paper-coauthors">with Lorena G. Barberia (USP) · Luiz G. R. Cantarelli (USP) · Natália de Paula Moreira (USP) · Isabel Seelaender Costa Rosa (USP)</p>
+                    <p class="paper-venue"><a href="https://doi.org/10.1590/0034-761220200549" target="_blank" rel="noopener noreferrer">Revista de Administração Pública (2021)</a></p>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-title">Should I Stay or Should I Go? Embracing Causal Heterogeneity in the Study of Pandemic Policy and Citizen Behavior</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body">We perform Granger-causality tests to explore the interrelationship between social distancing policy, home isolation, balance rate, and average weekly COVID-19 deaths in the 26 states of Brazil. Our analysis demonstrates significant heterogeneity across the Brazilian federation, underscoring that there is no common model applicable to all states and that the dynamics are context-dependent.</div>
+                    <p class="paper-coauthors">with Lorena G. Barberia (USP) · Andrea Junqueira (TAMU) · Natália de Paula Moreira (USP) · Guy D. Whitten (TAMU)</p>
+                    <p class="paper-venue"><a href="https://doi.org/10.1111/ssqu.13037" target="_blank" rel="noopener noreferrer">Social Science Quarterly (2021)</a></p>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-title">Foreign Policy and the Legislature in President Lugo's Paraguay</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body"><em>(Política Externa e Legislativo no Paraguai do Presidente Lugo)</em><br><br>The article assesses the association between political and institutional factors and the capacity of President Lugo to approve his legislative initiatives, disaggregating by themes of domestic politics and foreign policy. Through a logistic model, we find a president strongly constrained by the legislature in domestic affairs but with sufficient conditions to approve the foreign policy agenda.</div>
+                    <p class="paper-coauthors">with Pedro Feliu Ribeiro</p>
+                    <p class="paper-venue"><a href="https://doi.org/10.1590/1678987318266805" target="_blank" rel="noopener noreferrer">Revista de Sociologia e Política (2018)</a></p>
+                </div>
+
+                <div class="paper">
+                    <p class="paper-title">The Executive and Legislative Relations in Paraguay under Fernando Lugo (2008–2012)</p>
+                    <button class="abstract-toggle" aria-expanded="false"><span class="toggle-icon">&#9654;</span> Abstract</button>
+                    <div class="abstract-body"><em>(As Relações Executivo e Legislativo no Paraguai de Fernando Lugo (2008-2012))</em><br><br>This paper analyzes the legislative process in the National Congress of Paraguay during Lugo's administration. Results show that strategic state areas such as foreign policy, finances, and administration received massive congressional support, while the president's inability to legislate in sensitive electoral themes stressed the troubled relationship between president and congress.</div>
+                    <p class="paper-coauthors">with Pedro Feliu Ribeiro (USP)</p>
+                    <p class="paper-venue"><a href="https://publicaciones.sociales.uba.ar/index.php/revistaparaguay/article/download/1906/2065" target="_blank" rel="noopener noreferrer">Revista Paraguay desde las Ciencias Sociales (2017)</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div class="page" id="page-teaching">
+        <div class="page-inner">
+            <p class="label">Teaching</p>
+            <table class="teaching-table">
+                <tr>
+                    <td>Spring 2026</td>
+                    <td>
+                        <span class="t-course">Seminar in Comparative Politics: Political Behavior <span class="t-level">Graduate</span></span>
+                        <span class="t-detail">POLSCI 5190-02 · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fall 2025</td>
+                    <td>
+                        <span class="t-course">Topics in Politics: Authoritarian Politics <span class="t-level">Undergraduate</span></span>
+                        <span class="t-detail">POLSCI 3103-01 · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Summer 2025</td>
+                    <td>
+                        <span class="t-course">Python Camp <span class="t-level">Graduate</span></span>
+                        <span class="t-detail">Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spring 2025</td>
+                    <td>
+                        <span class="t-course">Comparative Politics Workshop <span class="t-level">Graduate</span></span>
+                        <span class="t-detail">POLSCI 5074 · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spring 2025</td>
+                    <td>
+                        <span class="t-course">Introduction to Comparative Politics <span class="t-level">Undergraduate</span></span>
+                        <span class="t-detail">POLSCI 102B · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fall 2024</td>
+                    <td>
+                        <span class="t-course">Approaches to Comparative Politics <span class="t-level">Graduate</span></span>
+                        <span class="t-detail">POLSCI 510 · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Spring 2024</td>
+                    <td>
+                        <span class="t-course">Introduction to Political Theory <span class="t-level">Undergraduate</span></span>
+                        <span class="t-detail">POLSCI 106 · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fall 2023</td>
+                    <td>
+                        <span class="t-course">Topics in Politics: Latin American Politics <span class="t-level">Undergraduate</span></span>
+                        <span class="t-detail">POLSCI 326B · Teaching Assistant · Washington University in St. Louis</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fall 2019</td>
+                    <td>
+                        <span class="t-course">Quantitative Methods in Research in Political Science IV <span class="t-level">Graduate</span></span>
+                        <span class="t-detail">FLP0468 · Teaching Assistant · University of São Paulo</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- CV -->
+    <div class="page" id="page-cv">
+        <div class="page-inner">
+            <p class="label">Curriculum Vitae</p>
+            <div class="cv-frame">
+                <embed src="assets/cv_file.pdf" type="application/pdf" width="100%" height="100%" />
+            </div>
+            <a class="cv-link" href="assets/cv_file.pdf" download>
+                <i class="fa-solid fa-arrow-down" style="font-size:0.65rem"></i> Download PDF
+            </a>
+        </div>
+    </div>
+
+</div><!-- /pages -->
+
+<!-- DOT NAV -->
+<div class="page-dots" id="pageDots">
+    <div class="page-dot active" data-page="about" title="About"></div>
+    <div class="page-dot" data-page="research" title="Research"></div>
+    <div class="page-dot" data-page="teaching" title="Teaching"></div>
+    <div class="page-dot" data-page="cv" title="CV"></div>
+</div>
+
+<script>
+    const PAGES = ['about', 'research', 'teaching', 'cv'];
+    let current = 'about';
+
+    function showPage(id) {
+        if (!PAGES.includes(id)) return;
+        // hide all
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.page-dot').forEach(d => d.classList.remove('active'));
+        // show target
+        document.getElementById('page-' + id).classList.add('active');
+        document.querySelector(`.nav-links a[data-page="${id}"]`)?.classList.add('active');
+        document.querySelector(`.page-dot[data-page="${id}"]`)?.classList.add('active');
+        current = id;
+        // close mobile nav
+        document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // Nav links & name
+    document.querySelectorAll('[data-page]').forEach(el => {
+        el.addEventListener('click', () => showPage(el.dataset.page));
+    });
+
+    // Mobile toggle
+    const tog = document.getElementById('navToggle');
+    const nl  = document.getElementById('navLinks');
+    tog.addEventListener('click', () => nl.classList.toggle('open'));
+
+    // Keyboard arrow navigation between pages
+    document.addEventListener('keydown', e => {
+        const idx = PAGES.indexOf(current);
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            if (idx < PAGES.length - 1) showPage(PAGES[idx + 1]);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            if (idx > 0) showPage(PAGES[idx - 1]);
+        }
+    });
+
+    // Abstract toggles
+    document.querySelectorAll('.abstract-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const body = btn.nextElementSibling;
+            const open = body.classList.toggle('open');
+            btn.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open);
+        });
+    });
+
+    // Init
+    showPage('about');
+</script>
+</body>
 </html>
