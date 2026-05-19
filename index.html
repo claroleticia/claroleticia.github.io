@@ -419,13 +419,20 @@
             height: auto !important;
             overflow-y: auto !important;
         }
+        nav {
+            height: auto;
+            min-height: var(--nav-h);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
         .about-photo { display: none; }
 
         .pages {
             position: static !important;
-            margin-top: var(--nav-h);
+            margin-top: calc(var(--nav-h) + 1.5rem);
             overflow: visible !important;
             -webkit-overflow-scrolling: auto;
+            
         }
 
         .page {
@@ -438,6 +445,12 @@
             transform: none !important;
             pointer-events: auto !important;
             padding: 3rem var(--gutter) 6rem;
+            padding-top: 2rem;
+        }
+
+        .nav-name {
+            max-width: 75%;
+            line-height: 1.2;
         }
 
         .page.active {
