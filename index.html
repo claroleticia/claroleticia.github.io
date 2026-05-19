@@ -414,38 +414,35 @@
         }
 
         /* ── MOBILE ── */
-    @media (max-width: 620px) {
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: var(--nav-h); left: 0; right: 0;
-            background: var(--bg);
-            border-bottom: 1px solid var(--bg-rule);
-            flex-direction: column;
-            padding: 1rem var(--gutter) 1.5rem;
-            gap: 1rem;
-        }
-        .nav-links.open { display: flex; }
-        .nav-toggle { display: flex; }
-        .about-hero { flex-direction: column; gap: 1.5rem; }
-        .about-photo { display: none; }
-        .teaching-table td:first-child { display: none; }
-        .page-dots { display: none; }
-
-        /* iOS scroll fix */
-        html,
+            @media (max-width: 620px) {
         body {
-            height: auto;
-            min-height: 100%;
-            overflow-y: auto;
+            height: auto !important;
+            overflow-y: auto !important;
         }
+
+        .pages {
+            position: static !important;
+            margin-top: var(--nav-h);
+            overflow: visible !important;
+            -webkit-overflow-scrolling: auto;
+        }
+
         .page {
-        height: auto !important;
-        min-height: 100dvh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 6rem;
-    }
+            position: static !important;
+            display: none !important;
+            height: auto !important;
+            min-height: auto !important;
+            overflow: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+            pointer-events: auto !important;
+            padding: 3rem var(--gutter) 6rem;
+        }
+
+        .page.active {
+            display: flex !important;
+        }
+
 
         }
     </style>
