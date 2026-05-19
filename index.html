@@ -415,21 +415,24 @@
 
         /* ── MOBILE ── */
             @media (max-width: 620px) {
+        :root {
+            --nav-h: 72px;
+        }
         body {
             height: auto !important;
             overflow-y: auto !important;
         }
         nav {
-            height: auto;
+            height: var(--nav-h);
             min-height: var(--nav-h);
-            padding-top: 0.85rem;
-            padding-bottom: 0.75rem;
+            padding-top: 0;
+            padding-bottom: 0;
         }
         .about-photo { display: none; }
 
         .pages {
             position: static !important;
-            margin-top: calc(var(--nav-h) + 1.9rem);
+            margin-top: var(--nav-h);
             overflow: visible !important;
             -webkit-overflow-scrolling: auto;
             
@@ -445,14 +448,16 @@
             transform: none !important;
             pointer-events: auto !important;
             padding: 3rem var(--gutter) 6rem;
-            padding-top: 2.1rem;
+            padding-top: 2rem;
         }
 
         .nav-name {
             max-width: 75%;
-            line-height: 1.2;
+            line-height: 1.5;
         }
-
+        .nav-links {
+            top: var(--nav-h);
+        }
         .page.active {
             display: flex !important;
         }
