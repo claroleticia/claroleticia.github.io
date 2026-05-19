@@ -456,7 +456,10 @@
             line-height: 1.5;
         }
         .nav-links {
-            top: var(--nav-h);
+            max-height: calc(100dvh - var(--nav-h));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2rem;
         }
         .page.active {
             display: flex !important;
