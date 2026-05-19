@@ -414,23 +414,30 @@
         }
 
         /* ── MOBILE ── */
-     @media (max-width: 620px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: var(--nav-h); left: 0; right: 0;
-                background: var(--bg);
-                border-bottom: 1px solid var(--bg-rule);
-                flex-direction: column;
-                padding: 1rem var(--gutter) 1.5rem;
-                gap: 1rem;
-            }
-            .nav-links.open { display: flex; }
-            .nav-toggle { display: flex; }
-            .about-hero { flex-direction: column; gap: 1.5rem; }
-            .about-photo { display: none; }
-            .teaching-table td:first-child { display: none; }
-            .page-dots { display: none; }
+    @media (max-width: 620px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: var(--nav-h); left: 0; right: 0;
+            background: var(--bg);
+            border-bottom: 1px solid var(--bg-rule);
+            flex-direction: column;
+            padding: 1rem var(--gutter) 1.5rem;
+            gap: 1rem;
+        }
+        .nav-links.open { display: flex; }
+        .nav-toggle { display: flex; }
+        .about-hero { flex-direction: column; gap: 1.5rem; }
+        .about-photo { display: none; }
+        .teaching-table td:first-child { display: none; }
+        .page-dots { display: none; }
+
+        /* iOS scroll fix */
+        .page {
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 6rem;
+        }
+
         }
     </style>
 </head>
